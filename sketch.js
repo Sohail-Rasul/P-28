@@ -10,6 +10,7 @@ var boy;
 var stone;
 var mango1,mango2,mango3,mango4,mango5;
 var string;
+var wall;
 function preload()
 {
 
@@ -25,7 +26,7 @@ function setup() {
 
 
 	//Create the Bodies Here
-	tree=new Tree(600,425,400,600)
+	tree=new Tree(600,450)
 	ground=new Ground(400,675,800,50);
 	stone=new Stone(200,350,50);
 	boy= new Boy(200,590,150,300);
@@ -58,11 +59,11 @@ function draw() {
   mango5.display();
   string.display();
   
-  	// detectCollision(stone,mango1);
-	// detectCollision(stone.mango2);
-	// detectCollision(stone,mango3);
-	// detectCollision(stone,mango4);
-	// detectCollision(stone,mango5);
+  	detectCollision(stone,mango1);
+	detectCollision(stone.mango2);
+	detectCollision(stone,mango3);
+	detectCollision(stone,mango4);
+	detectCollision(stone,mango5);
 }
 function mouseDragged(){
     Matter.Body.setPosition(stone.body, {x: mouseX , y: mouseY});
@@ -73,14 +74,14 @@ function mouseReleased(){
     string.fly();
 }
 
-// function detectCollision(Lstone,Lmango){
-// 	mangoBodyPosition=lmango.body.posititon
-// 	stoneBodyPosition=lstone.body.posititon
-// 	var distance=dist(stoneBodyPostition.x,stoneBodyPosition.y,magoBodyPosition.x,mangoBodyPosition.y)
-// 	if(distance<=lmango.r+lstone.r){
-// 		Matter.body.setStatic(lmango.body,false);
-// 	}
-// }
+function detectCollision(lstone,lmango){
+	mangoBodyPosition=lmango.body.position
+	stoneBodyPosition=lstone.body.position
+	var distance=dist(stoneBodyPosition.x,stoneBodyPosition.y,mangoBodyPosition.x,mangoBodyPosition.y)
+	if(distance<=lmango.r+lstone.r){
+		Matter.Body.setStatic(lmango.body,false);
+	}
+}
 
 
 

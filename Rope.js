@@ -19,6 +19,7 @@ class rope{
     display(){
         // image(this.rope1,200,20);
         // image(this.rope2,170,20);
+        if(this.rope.bodyA){
             var pointA = this.bodyA.position;
             var pointB = this.pointB;
             push();
@@ -26,6 +27,7 @@ class rope{
             strokeWeight(5);
             line(pointA.x,pointA.y,pointB.x,pointB.y);
             pop();
+        }
      }
 }
     
