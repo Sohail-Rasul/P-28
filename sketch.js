@@ -35,7 +35,7 @@ function setup() {
 	mango3=new Mango(680,280,40);	
 	mango4=new Mango(720,350,40);
 	mango5=new Mango(520,330,40);	
-	string=new rope(stone.body,{x:100,y:620});
+	string=new rope(stone.body,{x:150,y:500});
 	
 
 
@@ -60,7 +60,7 @@ function draw() {
   string.display();
   
   	detectCollision(stone,mango1);
-	detectCollision(stone.mango2);
+	detectCollision(stone,mango2);
 	detectCollision(stone,mango3);
 	detectCollision(stone,mango4);
 	detectCollision(stone,mango5);
